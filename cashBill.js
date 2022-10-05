@@ -28,7 +28,7 @@ function renderBill(){
                 <td class="text-center">${can.productQuantity}</td>
                 <td class="text-center">${can.productPrice}</td>
                 <td class="text-center">${can.Amount}</td>
-                <td>
+                <td class="btnover">
                     <button class="btn btnRemove" onclick="removeProduct()">Remove</button>
                     <button class="btn btnEdit" onclick="editProduct(${can.productId})">Edit</button>
                     <button class="btn" onclick="updateProduct(${can.productId})">Update</button>

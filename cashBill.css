@@ -41,3 +41,8 @@ thead>tr>th{
     border-radius: 5px;
     margin: 3px auto;
 }
+.btnover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
