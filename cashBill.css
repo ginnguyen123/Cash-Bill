@@ -1,6 +1,9 @@
 .container{
  margin: 3px auto;
  width: 900px;
+ box-sizing: border-box;
+ font-family: 'Times New Roman', Times, serif;
+ font-size: 14px;
 }
 .row{
     background-color: rgb(199, 193, 193);
@@ -8,11 +11,33 @@
     padding: 3px;
     border-radius: 3px;
 }
-
+.input-form{
+    display: flex;
+}
+.input-form > label{
+    width: 100px;
+}
 .form-control{
-    width: 60%;
+    width: 100%;
     padding: 3px;
     margin-bottom: 3px;
     border-radius: 3px;
-    
+}
+.text-right{
+    text-align: right;
+}
+.text-center{
+    text-align: center;
+}
+thead>tr>th{
+    background-color: black;
+    color: white;
+}
+.table{
+    width: 100%;
+}
+.btn{
+    padding: 2px;
+    border-radius: 5px;
+    margin: 3px auto;
 }
