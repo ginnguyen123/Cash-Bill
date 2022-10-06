@@ -43,38 +43,35 @@ function addProduct(){
     let productName = document.getElementById("product").value;
     let Quantitys = Number(document.getElementById("quantity").value);
     let productId = getLastProductId() + 1; 
-    let price = priceProducts();
     if(productName == ""){
         alert('Chưa nhập sản phẩm!');
         return;
     }
+    let price = getProductPrice(productName);
     let newProduct = new Product(productId, productName, Quantitys, price)
     products.push(newProduct);
     window.localStorage.setItem(cashBill_data, JSON.stringify(products));
     renderBill();
     resetForm();
 }
-function priceProducts(){
-    let prices = 0;
-    let productName = document.getElementById("product").value;
-    switch (true) {
-        case (productName == "Black Caffe"):{
-            prices = 16000;
-            return prices;
-        }
-        case (productName == "White Caffe"):{
-            prices = 18000;
-            return prices;
-        }
-        case (productName == "Orange Juice"):{
-            prices = 20000;
-            return prices;
-        }
-        case (productName == "Lemon Juice"):{
-            prices = 12000;
-            return prices;
-        }
+function getProductPrice(productName){
+    let price;
+    switch(productName) {
+        case "Black Caffe" :
+            price = 1600; 
+            break;
+        case "White Caffe" : 
+            price = 18000; 
+            break;
+        case "Orange Juice" :
+            price = 20000; 
+            break;
+        case "Lemon Juice" :
+            price = 12000; 
+            break;
+        default : price = 0;
     }
+    return price;
 }
 function getLastProductId(){
     let pdtTemp = [...products];
@@ -125,18 +122,17 @@ function editProduct(pdtId){
     //renderBill();
 }
 function updateProduct(pdtId){
-    console.log(products[pdtId-1])
-    let updateProduct = document.getElementById(`product-${pdtId}`).value;
-    let quantityProduct = Number(document.getElementById(`quantity-${pdtId}`).value);
+    const productName = document.getElementById(`product-${pdtId}`).value;
+    const quantityProduct = Number(document.getElementById(`quantity-${pdtId}`).value);
     if(updateProduct != "" && isNaN(quantityProduct) == false){
-        products[pdtId-1].productName = document.getElementById(`product-${pdtId}`).value;
+        products[pdtId-1].productName = productName;
         products[pdtId-1].productQuantity = document.getElementById(`quantity-${pdtId}`).value;
+        products[pdtId-1].productPrice = getProductPrice(productName);
+        products[pdtId-1].Amount = products[pdtId-1].productPrice * products[pdtId-1].productQuantity;
     }else {
         return alert("Nhập dữ liệu cần thay đổi!");
     }
     renderBill()
-    window.localStorage.setItem(cashBill_data, JSON.stringify(products));
-    priceProducts(products[pdtId-1].productName);
 }
 function cancelProduct(){
     renderBill();
