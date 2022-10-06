@@ -46,3 +46,28 @@ thead>tr>th{
     align-items: center;
     justify-content: center;
 }
+#btnAdd{
+    padding: 5px;
+    border-radius: 5px; 
+    width: 50px;
+}
+#btnAdd:hover{
+    background-color: rgb(137, 155, 171);
+    cursor: pointer
+}
+.btnRemove:hover{
+    background-color: rgb(137, 155, 171);
+    cursor: pointer
+}
+.btnEdit:hover{
+    background-color: rgb(137, 155, 171);
+    cursor: pointer
+}
+.btnUpdate:hover{
+    background-color: rgb(137, 155, 171);
+    cursor: pointer
+}
+.btnCancel:hover{
+    background-color: rgb(137, 155, 171);
+    cursor: pointer
+}
