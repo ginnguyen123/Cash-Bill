@@ -58,7 +58,7 @@ function getProductPrice(productName){
     let price;
     switch(productName) {
         case "Black Caffe" :
-            price = 1600; 
+            price = 16000; 
             break;
         case "White Caffe" : 
             price = 18000; 
